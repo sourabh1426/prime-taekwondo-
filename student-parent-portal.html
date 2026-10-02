@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>Student & Parent Portal | Prime Taekwondo</title>
+<style>
+:root{--navy:#111827;--blue:#1f3554;--gold:#d6a64f;--paper:#f5f6f8;--ink:#202a38;--muted:#718096;--line:#e4e8ee;--green:#27815e}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}.wrap{max-width:1080px;margin:auto;padding:28px 20px 56px}.top{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;padding:18px 22px;border-radius:14px}.brand{font-weight:800;letter-spacing:.04em}.brand small{display:block;color:#c5ced9;font-size:10px;letter-spacing:.15em;margin-top:5px}.top button,.btn{border:0;border-radius:8px;padding:11px 15px;font-weight:700}.top button{background:#fff;color:var(--navy)}.notice{margin:16px 0;padding:11px 14px;border-radius:8px;color:#74551d;background:#fff5df;font-size:12px;line-height:1.5}.login{max-width:480px;margin:34px auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:0 14px 34px #13233b0c}.login h1{margin:0 0 8px;font-size:25px}.muted{color:var(--muted);line-height:1.55}.field{display:grid;gap:7px;margin:16px 0}.field label{font-size:12px;font-weight:700}.field input{padding:12px;border:1px solid #cfd6df;border-radius:8px}.btn{background:var(--gold);color:#172236;width:100%;margin-top:8px}.role-choice{display:flex;gap:8px;margin:18px 0}.role-choice a{flex:1;text-align:center;text-decoration:none;color:var(--navy);background:#f1f3f6;padding:12px;border-radius:8px;font-weight:700;font-size:13px}.demo{margin-top:18px;padding:13px;background:#f8f9fb;border-radius:8px;font-size:12px;line-height:1.7}.error{color:#ad3028;font-size:12px;margin-top:12px}.head{margin:26px 0 18px}.head h1{margin:0 0 6px;font-size:28px}.head p{margin:0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:19px;box-shadow:0 8px 24px #13233b08}.card h2{font-size:15px;margin:0 0 13px}.profile{display:flex;align-items:center;gap:14px;background:var(--blue);color:white}.belt{font-size:28px;background:#ffffff20;border-radius:50%;width:56px;height:56px;display:grid;place-items:center}.profile small{color:#d0d9e4}.stat{font-size:28px;font-weight:800;margin-bottom:4px}.label{font-size:10px;color:var(--muted);letter-spacing:.08em;font-weight:700}.row{padding:10px 0;border-top:1px solid var(--line);font-size:13px;line-height:1.45}.row:first-of-type{border-top:0}.row small{display:block;color:var(--muted);margin-top:4px}.progress{height:8px;border-radius:9px;background:#edf0f3;overflow:hidden;margin:12px 0}.progress i{display:block;height:100%;background:var(--gold)}.steps{margin:8px 0 0;padding-left:20px}.steps li{padding:5px 0;font-size:13px;line-height:1.4}.full{grid-column:1/-1}.actions{display:flex;justify-content:space-between;align-items:center;margin-top:20px}.actions a{color:#74551d;font-size:13px}#app[hidden]{display:none}
+@media(max-width:650px){.wrap{padding:14px 12px 34px}.top{padding:15px}.grid{grid-template-columns:1fr}.full{grid-column:auto}.login{padding:22px;margin:20px auto}.head h1{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand">PRIME TAEKWONDO<small>MEMBER PORTAL</small></div><button id="logout" hidden>Sign out</button></header>
+<div class="notice"><b>Static demo:</b> Demo accounts and sample progress are stored in this browser. This is not secure production authentication; do not enter real student information.</div>
+<main id="app"></main>
+</div>
+<script>
+(function(){
+  const STORE='primeTaekwondoPortalDemo_v1', SESSION='primeTaekwondoPortalSession_v1';
+  const today=new Date().toISOString().slice(0,10);
+  const sample={
+    users:[
+      {id:'maya',name:'Maya Patel',email:'student@prime.test',password:'PrimeStudent!23',role:'student',approved:true,rank:'Green Belt',attendance:92,streak:5,nextRank:'Blue Belt',readiness:68,steps:['Learn 1 remaining form','Attend 3 more classes','Practice balance and controlled turns']},
+      {id:'aarav',name:'Aarav Shah',email:'aarav@prime.test',password:'PrimeStudent!23',role:'student',approved:true,rank:'Yellow Belt',attendance:78,streak:2,nextRank:'Green Belt',readiness:35,steps:['Practice front stance','Attend 8 more classes','Review the first two forms']},
+      {id:'priya',name:'Priya Patel',email:'parent@prime.test',password:'PrimeParent!23',role:'parent',approved:true,childIds:['maya']}
+    ],
+    awards:[{id:'a1',studentId:'maya',title:'Consistent Spirit',date:'2026-09-21',detail:'Recognized for focus and respect.'},{id:'a2',studentId:'aarav',title:'Great Effort',date:'2026-09-15',detail:'Excellent persistence during class.'}],
+    activity:[{id:'x1',studentId:'maya',title:'Roundhouse kick',date:today,detail:'Improved balance and chamber position.'},{id:'x2',studentId:'aarav',title:'Front stance',date:today,detail:'Good control; keep the back heel grounded.'}],
+    attendance:[{id:'c1',studentId:'maya',date:today,status:'Present',detail:'Great focus in class.'},{id:'c2',studentId:'aarav',date:today,status:'Present',detail:'Strong effort in drills.'}]
+  };
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function data(){try{const saved=JSON.parse(localStorage.getItem(STORE));if(saved&&saved.users)return saved;}catch{}localStorage.setItem(STORE,JSON.stringify(sample));return sample;}
+  const role=new URLSearchParams(location.search).get('role');
+  const app=document.querySelector('#app'), logout=document.querySelector('#logout');
+  function login(message=''){
+    logout.hidden=true;
+    const heading=role==='student'?'Student Login':role==='parent'?'Parent Login':'Choose your portal';
+    const choices='<div class="role-choice"><a href="?role=student">🥋 Student</a><a href="?role=parent">👨‍👩‍👧 Parent</a></div>';
+    app.innerHTML='<section class="login"><h1>'+heading+'</h1><p class="muted">Sign in to view your training progress.</p>'+(role?'':'<p class="muted">Select the right portal to continue.</p>')+choices+(role?'<form id="loginForm"><div class="field"><label>Email</label><input name="email" type="email" autocomplete="username" required></div><div class="field"><label>Password</label><input name="password" type="password" autocomplete="current-password" required></div><button class="btn">Sign in</button><div id="error" class="error">'+esc(message)+'</div></form><div class="demo">Demo login:<br>'+(role==='student'?'Student: student@prime.test / PrimeStudent!23':'Parent: parent@prime.test / PrimeParent!23')+'</div>':'')+'<div class="actions"><a href="index.html">← Back to main website</a></div></section>';
+    document.querySelector('#loginForm')?.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(e.currentTarget),email=String(fd.get('email')).toLowerCase(),password=String(fd.get('password'));const u=data().users.find(x=>x.email.toLowerCase()===email&&x.password===password&&x.role===role&&x.approved);if(!u){document.querySelector('#error').textContent='Email or password is incorrect for this portal.';return}sessionStorage.setItem(SESSION,JSON.stringify({userId:u.id,role:u.role}));dashboard();});
+  }
+  function dashboard(){
+    const d=data();let s=null,sid=null;try{const session=JSON.parse(sessionStorage.getItem(SESSION));if(!session||session.role!==role)throw 0;const u=d.users.find(x=>x.id===session.userId&&x.role===session.role&&x.approved);if(!u)throw 0;if(u.role==='student'){sid=u.id;s=u;}else{sid=(u.childIds||[]).find(id=>d.users.some(x=>x.id===id&&x.role==='student'&&x.approved));s=d.users.find(x=>x.id===sid&&x.role==='student'&&x.approved);}if(!s)throw 0;}catch{sessionStorage.removeItem(SESSION);login();return;}
+    const awards=d.awards.filter(x=>x.studentId===sid), activity=d.activity.filter(x=>x.studentId===sid), attendance=d.attendance.filter(x=>x.studentId===sid);
+    const list=(rows,empty)=>rows.length?rows.map(x=>'<div class="row"><b>'+esc(x.title||x.status)+'</b><small>'+esc(x.detail||x.date||'')+'</small></div>').join():'<div class="row">'+empty+'</div>';
+    const tasks=(s.steps||[]).map(x=>'<li>'+esc(x)+'</li>').join();
+    logout.hidden=false;
+    app.innerHTML='<div class="head"><h1>Hello, '+esc(role==='parent'?d.users.find(x=>x.id===JSON.parse(sessionStorage.getItem(SESSION)).userId).name.split(' ')[0]:s.name.split(' ')[0])+'</h1><p>'+(role==='parent'?'Progress for your linked child only.':'Your personal training dashboard.')+'</p></div><div class="grid"><section class="card profile"><div class="belt">🥋</div><div><small>'+(role==='parent'?'LINKED CHILD PROFILE':'MY PROFILE')+'</small><h2>'+esc(s.name)+'</h2><div>'+esc(s.rank)+'</div></div></section><section class="card"><div class="label">ATTENDANCE</div><div class="stat">'+Number(s.attendance)+'%</div><div class="muted">Current training consistency</div></section><section class="card"><div class="label">CURRENT STREAK</div><div class="stat">'+Number(s.streak)+' days</div><div class="muted">Classes attended in a row</div></section><section class="card"><h2>Awards & achievements</h2>'+list(awards,'No awards recorded yet.')+'</section><section class="card"><h2>Recent activity</h2>'+list(activity,'No recent activity.')+list(attendance,'No attendance records.')+'</section><section class="card full"><h2>Next upgrade: '+esc(s.nextRank)+'</h2><div class="muted">'+Number(s.readiness)+'% ready</div><div class="progress"><i style="width:'+Math.max(0,Math.min(100,Number(s.readiness)))+'%"></i></div><ul class="steps">'+tasks+'</ul></section></div>';
+  }
+  logout.addEventListener('click',()=>{sessionStorage.removeItem(SESSION);login();});
+  if(role==='student'||role==='parent'){const sess=sessionStorage.getItem(SESSION);if(sess)dashboard();else login();}else login();
+})();
+</script>
+</body>
+</html>
