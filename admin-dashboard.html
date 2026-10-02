@@ -13,15 +13,16 @@
   <div class="layout">
     <aside class="side"><a class="brand" href="index.html"><img src="logo.png" alt=""><span>PRIME <span>TAEKWONDO</span><small>ADMIN PORTAL</small></span></a><div class="nav-label">MENU</div><a class="nav active" href="admin-dashboard.html">Dashboard</a><a class="nav" href="admin-dashboard.html#website">Website & Gallery</a><a class="nav" href="index.html" target="_blank" rel="noopener">View public website ↗</a><button class="nav" id="signOut">Sign out</button></aside>
     <div class="main"><header class="top"><strong>Admin Dashboard</strong><a href="index.html" target="_blank" rel="noopener" class="button">View website ↗</a></header>
-      <main class="content"><div class="heading"><div><h1>Welcome to Admin Portal</h1><p>Manage Prime Taekwondo's public website and gallery.</p></div></div>
+      <main class="content"><div class="heading"><div><h1>Welcome to Admin Portal</h1><p>Manage student applications, class progress and the public website.</p></div></div>
         <div id="status" class="status" role="status">Checking Admin access…</div>
         <section class="welcome"><div class="welcome-icon">🥋</div><div><h2>Academy website</h2><p>Update public homepage text and keep the training gallery current.</p></div></section>
         <section id="website" class="cards">
+          <article class="card"><div class="mini">🥋</div><h3>Academy management</h3><p>Review login requests, maintain the student roster, schedule classes and track attendance and progress.</p><a href="academy-admin.html">Open Academy Dashboard →</a></article>
           <article class="card"><div class="mini">🖥️</div><h3>Homepage updates</h3><p>Edit the main headline, introduction, Coach Siddhesh's details, contact number and address. Changes appear on the public website after saving.</p><a href="site-manager.html#homepage">Open Homepage Editor →</a></article>
           <article class="card"><div class="mini">📸</div><h3>Public Gallery</h3><p>Add or remove training, event, class and award photos. Published photos are visible to everyone on the public site.</p><a href="site-manager.html#gallery">Manage Gallery →</a></article>
         </section>
         <div class="drawer-tip"><strong>Security:</strong> only the account marked as an Admin in Supabase can open these tools. The included static website uses Supabase for sign-in and shared updates.</div>
-        <p class="footnote">Student, Parent and other admin data sections still depend on their own backend setup. This panel currently manages public website content and gallery.</p>
+        <p class="footnote">Student and parent pages now use Supabase accounts. New accounts see training records only after Admin approval.</p>
       </main>
     </div>
   </div>
@@ -31,7 +32,7 @@
     async function protectPage(){client=window.createPrimeSupabaseClient?.();if(!client){statusBox.textContent='Supabase setup is not finished. Follow the setup guide first.';statusBox.classList.add('error');return}
       const {data:{session}}=await client.auth.getSession();if(!session){location.replace('admin-login.html');return}
       const {data,error}=await client.rpc('is_site_admin');if(error||data!==true){await client.auth.signOut();location.replace('admin-login.html');return}
-      statusBox.hidden=true;
+      location.replace('academy-admin.html');
     }
     document.getElementById('signOut').addEventListener('click',async()=>{if(client)await client.auth.signOut();location.href='admin-login.html'});protectPage();
   </script>

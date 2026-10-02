@@ -1,20 +1,18 @@
-# Prime Taekwondo website update
+# Prime Taekwondo website and academy portal
 
-This package adds a visitor-facing photo gallery and an Admin editor for homepage content and gallery photos while keeping the existing Student/Parent portal link and Admin portal route.
+This package keeps the Supabase-backed public homepage editor and photo gallery, and restores the academy management areas: application approvals, student roster, class schedule, attendance, student progress, activity notes, family updates, awards, ranks and reports.
 
-## Files
+## Main files
 
-- `index.html` — public academy homepage, contact/coach details, linked member cards, and gallery preview.
-- `gallery.html` — public gallery with category filters.
-- `admin-login.html` / `admin-dashboard.html` / `site-manager.html` — Supabase-authenticated Admin entry and editor.
-- `student-parent-portal.html` — local browser demo portal, not production authentication.
-- `supabase-config.js` / `supabase-setup.sql` — public browser configuration and database/storage policies.
-- `SETUP-GUIDE-HINDI.md` — setup and upload steps.
+- `index.html`, `gallery.html`, `logo.png`, `coach.jpeg` — public website, gallery and coach image.
+- `admin-login.html`, `admin-dashboard.html`, `academy-admin.html` — protected Admin access and academy dashboard.
+- `site-manager.html` — existing homepage and public gallery editor.
+- `student-parent-portal.html` — Supabase sign-in, public access request, and approved member records.
+- `supabase-config.js`, `supabase-setup.sql` — browser configuration and database/RLS setup.
+- `SETUP-GUIDE-HINDI.md` — SQL, sign-up, upload and approval steps.
 
-## Hosting and data boundary
+## Access and privacy
 
-GitHub Pages hosts the static HTML. Supabase stores public homepage text/gallery records and photo files. Row-level security allows public reads for published content and limits writes to the Admin ID inserted into `site_admins`. Only a Supabase publishable key belongs in the browser. Never put a service-role/secret key in these files.
+Public visitors can request a Student or Parent/Guardian account from the Member Portal. Sign-up creates a Supabase Auth account and a pending application. Admin approval creates an active student profile; until then, RLS policies prevent the account from reading student records. Student/Parent record access is linked by the profile's student and parent email fields. Only Admin accounts can edit academy records.
 
-Student/Parent sample accounts and sample progress remain in that browser's local storage/session storage. The client-side parent-child filter is only a demonstration and can be altered by the browser user. It is not private, cross-device authentication or a production authorization boundary.
-
-See `SETUP-GUIDE-HINDI.md` before deploying.
+Run the updated `supabase-setup.sql` in the existing project's SQL Editor. It is idempotent and preserves current homepage/gallery data. The static site uses the Supabase publishable key only; never put a service-role/secret key in browser files.
