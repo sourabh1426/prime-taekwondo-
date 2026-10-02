@@ -1,189 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Admin Login | Prime Taekwondo</title>
-
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #111827;
-}
-
-.login-box {
-    width: 400px;
-    max-width: 92%;
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-}
-
-.logo {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.logo h1 {
-    font-size: 28px;
-    color: #111827;
-}
-
-.logo span {
-    color: #ef4444;
-}
-
-.logo p {
-    margin-top: 8px;
-    color: #6b7280;
-}
-
-label {
-    display: block;
-    margin: 18px 0 7px;
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #d1d5db;
-    border-radius: 7px;
-    font-size: 15px;
-}
-
-input:focus {
-    outline: none;
-    border-color: #ef4444;
-}
-
-button {
-    width: 100%;
-    margin-top: 25px;
-    padding: 14px;
-    border: none;
-    border-radius: 7px;
-    background: #ef4444;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #dc2626;
-}
-
-.error {
-    display: none;
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 6px;
-    background: #fee2e2;
-    color: #b91c1c;
-    text-align: center;
-}
-
-.back {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    color: #6b7280;
-    text-decoration: none;
-    font-size: 14px;
-}
-</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1020">
+  <title>Admin Login | Prime Taekwondo</title><link rel="icon" type="image/png" href="logo.png">
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(ellipse at 70% 15%,#273957,#0b1020 65%);font:15px/1.5 Arial,sans-serif;color:#172033}.card{width:min(440px,100%);background:#fff;border:1px solid #ffffff30;border-radius:18px;padding:30px;box-shadow:0 24px 70px #0005}.brand{text-align:center;margin-bottom:20px}.brand img{width:95px;height:75px;object-fit:contain}.brand strong{display:block;font-size:20px}.brand strong span{color:#df2636}.brand small{color:#687386;letter-spacing:.12em}.card h1{font-size:23px;margin:18px 0 5px}.hint{color:#687386;font-size:13px}.field{display:grid;gap:7px;margin:16px 0}.field label{font-weight:800;font-size:12px}.field input{width:100%;padding:12px;border:1px solid #ccd4df;border-radius:8px;font:inherit}.btn{width:100%;border:0;border-radius:8px;padding:12px;background:#ef3340;color:white;font-weight:900;font:inherit;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.error{min-height:20px;color:#b4232f;font-size:13px;margin-top:12px}.back{display:block;text-align:center;margin-top:19px;color:#475569;font-size:13px}.demo-note{margin-top:17px;padding:12px;border-radius:8px;background:#f4f6f9;color:#596579;font-size:12px;line-height:1.55}
+  </style>
 </head>
-
 <body>
-
-<div class="login-box">
-
-    <div class="logo">
-        <h1>PRIME <span>TAEKWONDO</span></h1>
-        <p>Admin Portal</p>
-    </div>
-
-    <form id="loginForm">
-
-        <label for="email">Admin Email</label>
-        <input
-            type="email"
-            id="email"
-            placeholder="Enter admin email"
-            required
-        >
-
-        <label for="password">Password</label>
-        <input
-            type="password"
-            id="password"
-            placeholder="Enter password"
-            required
-        >
-
-        <button type="submit">
-            Login to Admin Panel
-        </button>
-
-        <div class="error" id="error">
-            Invalid admin email or password.
-        </div>
-
-    </form>
-
-    <a href="index.html" class="back">
-        ← Back to Prime Taekwondo
-    </a>
-
-</div>
-
-<script>
-
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    /*
-       DEMO LOGIN ONLY
-
-       These credentials are intentionally for testing.
-       Do NOT use this authentication method for production.
-    */
-
-    const adminEmail = "admin@primetaekwondo.com";
-    const adminPassword = "Admin@123";
-
-    if (email === adminEmail && password === adminPassword) {
-
-        sessionStorage.setItem("primeAdminLoggedIn", "true");
-
-        window.location.href = "admin-dashboard.html";
-
-    } else {
-
-        document.getElementById("error").style.display = "block";
-
-    }
-
-});
-
-</script>
-
+  <main class="card"><div class="brand"><img src="logo.png" alt="Prime Taekwondo logo"><strong>PRIME <span>TAEKWONDO</span></strong><small>ADMIN PORTAL</small></div>
+    <h1>Admin sign in</h1><p class="hint">Sign in using the Admin account created in Supabase.</p>
+    <form id="loginForm"><div class="field"><label for="email">Admin email</label><input id="email" type="email" autocomplete="username" required></div><div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div><button class="btn" id="submitButton" type="submit">Sign in</button><div class="error" id="error" role="alert"></div></form>
+    <div class="demo-note">Admin login works after the one-time Supabase setup in the included guide. This website does not keep passwords in the page.</div><a class="back" href="index.html">← Back to public website</a>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script>
+  <script>
+    const form=document.getElementById('loginForm'),errorBox=document.getElementById('error'),button=document.getElementById('submitButton');
+    function showError(message){errorBox.textContent=message}
+    form.addEventListener('submit',async event=>{
+      event.preventDefault();showError('');button.disabled=true;button.textContent='Signing in…';
+      const client=window.createPrimeSupabaseClient?.();
+      if(!client){showError('The Admin login is not configured yet. Follow the included setup guide.');button.disabled=false;button.textContent='Sign in';return}
+      try{const {error}=await client.auth.signInWithPassword({email:document.getElementById('email').value.trim(),password:document.getElementById('password').value});if(error)throw error;const {data,error:roleError}=await client.rpc('is_site_admin');if(roleError||data!==true){await client.auth.signOut();throw new Error('This account is not approved as a Prime Taekwondo Admin.')}location.href='admin-dashboard.html'}catch(err){showError(err.message==='Invalid login credentials'?'Email or password is incorrect.':err.message||'Could not sign in. Please try again.');button.disabled=false;button.textContent='Sign in'}
+    });
+  </script>
 </body>
 </html>
