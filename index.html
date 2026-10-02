@@ -1,500 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Prime Taekwondo | Martial Arts Academy</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            background: #f5f7fa;
-            color: #111827;
-        }
-
-        /* NAVBAR */
-        nav {
-            background: #111827;
-            color: white;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #ef4444;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        nav ul li a:hover {
-            color: #ef4444;
-        }
-
-        .login-btn {
-            background: #ef4444;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            padding: 70px 7%;
-            background: linear-gradient(135deg, #111827, #1f2937);
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 700px;
-        }
-
-        .hero h1 {
-            font-size: 58px;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #ef4444;
-        }
-
-        .hero p {
-            font-size: 19px;
-            line-height: 1.7;
-            color: #d1d5db;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .primary-btn,
-        .secondary-btn {
-            padding: 14px 25px;
-            border-radius: 7px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .primary-btn {
-            background: #ef4444;
-            color: white;
-        }
-
-        .secondary-btn {
-            border: 1px solid white;
-            color: white;
-        }
-
-        /* SECTION */
-        section {
-            padding: 70px 7%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title h2 {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #6b7280;
-        }
-
-        /* FEATURES */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-        }
-
-        .feature-card .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .feature-card p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-
-        /* PROGRAMS */
-        .programs {
-            background: #111827;
-            color: white;
-        }
-
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .program-card {
-            background: #1f2937;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #374151;
-        }
-
-        .program-card h3 {
-            color: #ef4444;
-            margin-bottom: 12px;
-        }
-
-        .program-card p {
-            color: #d1d5db;
-            line-height: 1.6;
-        }
-
-        /* PORTAL */
-        .portal {
-            background: white;
-        }
-
-        .portal-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .portal-card {
-            padding: 30px;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .portal-card h3 {
-            margin: 12px 0;
-        }
-
-        .portal-card p {
-            color: #6b7280;
-            font-size: 14px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #0b1120;
-            color: #d1d5db;
-            text-align: center;
-            padding: 30px;
-        }
-
-        footer strong {
-            color: white;
-        }
-
-        /* MOBILE */
-        @media (max-width: 900px) {
-
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .features,
-            .portal-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .program-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            .features,
-            .portal-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 60px 6%;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Prime Taekwondo builds fitness, discipline, confidence and competitive skill. Find the right training program and member portal.">
+  <title>Prime Taekwondo | Martial Arts Academy</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    :root{--night:#0b1020;--navy:#111827;--panel:#171f31;--panel2:#1d293d;--red:#ef3340;--red2:#ff5964;--gold:#f4ca73;--white:#f9fafb;--muted:#aeb8c8;--ink:#111827;--line:#ffffff1c;--shadow:0 18px 48px #080d1a4d}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#f5f7fa;color:var(--ink);font:16px/1.55 Arial,Helvetica,sans-serif}
+    a{color:inherit}
+    .site-nav{position:sticky;top:0;z-index:10;background:#0b1020f2;color:#fff;border-bottom:1px solid #ffffff12;backdrop-filter:blur(12px)}
+    .nav-inner{width:min(1200px,92%);height:78px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:max-content}
+    .brand img{height:54px;width:72px;object-fit:contain;mix-blend-mode:screen}
+    .brand-name{font-size:20px;line-height:1;font-weight:900;letter-spacing:.03em}
+    .brand-name span{color:var(--red2)}
+    .brand small{display:block;color:#aab5c7;font-size:9px;letter-spacing:.17em;margin-top:7px}
+    .nav-links{list-style:none;padding:0;margin:0;display:flex;align-items:center;gap:27px}
+    .nav-links a{color:#e4e9f1;text-decoration:none;font-size:14px;font-weight:700;transition:color .2s}
+    .nav-links a:hover{color:var(--red2)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:800;border-radius:9px;padding:12px 19px;transition:transform .2s,background .2s,box-shadow .2s}
+    .nav-cta{color:#fff;background:var(--red)}
+    .nav-cta:hover,.btn-primary:hover{background:#d92030;transform:translateY(-2px);box-shadow:0 10px 24px #ef334044}
+    .menu-toggle{display:none;border:1px solid #ffffff35;background:transparent;color:#fff;border-radius:8px;padding:9px 12px;font-size:20px}
+    .hero{position:relative;isolation:isolate;overflow:hidden;color:#fff;background:radial-gradient(ellipse at 75% 45%,#263753 0,#172338 34%,#0b1020 72%);min-height:590px}
+    .hero:before,.hero:after{content:"";position:absolute;z-index:-1;border:1px solid #ffffff10;border-radius:50%;width:650px;height:650px;right:-210px;top:-60px;box-shadow:0 0 0 55px #ffffff06,0 0 0 110px #ffffff04}
+    .hero:after{width:430px;height:430px;right:8%;top:45%;border-color:#ef334033;box-shadow:0 0 80px #ef334021}
+    .hero-inner{width:min(1200px,92%);min-height:590px;margin:auto;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:44px;padding:64px 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #ffffff24;background:#ffffff0b;color:#f5d990;border-radius:999px;padding:8px 13px;font-size:11px;letter-spacing:.16em;font-weight:800;text-transform:uppercase}
+    .eyebrow:before{content:"";width:7px;height:7px;background:var(--red2);border-radius:50%;box-shadow:0 0 14px var(--red2)}
+    .hero h1{font-size:clamp(42px,5.5vw,72px);line-height:1.04;letter-spacing:-.045em;margin:20px 0}
+    .hero h1 span{color:var(--red2)}
+    .hero-copy{max-width:630px;color:#c9d1dc;font-size:18px;line-height:1.75;margin:0 0 28px}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--red);color:white}
+    .btn-secondary{border:1px solid #ffffff5c;color:white;background:#ffffff08}
+    .btn-secondary:hover{background:#ffffff16;transform:translateY(-2px)}
+    .hero-note{display:flex;gap:21px;flex-wrap:wrap;margin-top:31px;color:#d8dfeb;font-size:12px}
+    .hero-note span:before{content:"✓";color:var(--gold);font-weight:900;margin-right:7px}
+    .hero-art{position:relative;display:grid;place-items:center;min-height:360px}
+    .logo-glow{position:absolute;width:min(440px,95%);aspect-ratio:1.2;border-radius:50%;background:#ef334022;filter:blur(60px)}
+    .hero-logo{position:relative;width:min(500px,100%);height:auto;object-fit:contain;filter:drop-shadow(0 22px 38px #0009);border-radius:22px}
+    .hero-tag{position:absolute;right:0;bottom:16px;padding:13px 17px;border:1px solid #ffffff24;background:#101827dd;border-radius:12px;color:#e9edf3;font-size:12px;font-weight:700;box-shadow:var(--shadow)}
+    section{scroll-margin-top:80px}
+    .section{padding:84px 0}
+    .section-inner{width:min(1200px,92%);margin:auto}
+    .section-heading{text-align:center;max-width:670px;margin:0 auto 42px}
+    .kicker{color:#c02734;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.18em}
+    .section-heading h2{font-size:clamp(29px,4vw,42px);letter-spacing:-.035em;line-height:1.15;margin:9px 0 10px;color:#121a29}
+    .section-heading p{color:#687386;margin:0}
+    .features{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+    .feature-card{background:#fff;border:1px solid #e6eaf0;border-radius:15px;padding:25px 21px;box-shadow:0 9px 25px #1621390b;transition:transform .2s,box-shadow .2s}
+    .feature-card:hover,.program-card:hover{transform:translateY(-5px);box-shadow:0 18px 34px #11182719}
+    .feature-icon{height:48px;width:48px;border-radius:13px;background:#fff0f0;display:grid;place-items:center;font-size:25px;margin-bottom:17px}
+    .feature-card h3{font-size:17px;margin:0 0 8px}
+    .feature-card p{color:#687386;font-size:14px;line-height:1.65;margin:0}
+    .programs{position:relative;background:var(--night);color:white;overflow:hidden}
+    .programs:before{content:"";position:absolute;inset:auto -120px -350px auto;width:620px;height:620px;border-radius:50%;border:1px solid #ffffff0c;box-shadow:0 0 0 50px #ffffff05,0 0 0 100px #ffffff03}
+    .programs .section-heading h2{color:#fff}
+    .programs .section-heading p{color:#aeb8c8}
+    .program-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .program-card{position:relative;background:linear-gradient(145deg,#1b263a,#121a29);border:1px solid #ffffff18;border-radius:16px;padding:27px;min-height:210px;transition:transform .2s,box-shadow .2s}
+    .program-number{font-size:11px;letter-spacing:.12em;color:var(--gold);font-weight:900}
+    .program-card h3{font-size:20px;margin:20px 0 9px}
+    .program-card p{font-size:14px;line-height:1.7;color:#b9c3d1;margin:0}
+    .portal{background:linear-gradient(180deg,#fff,#f6f7fa)}
+    .portal-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .portal-card{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:240px;padding:26px 20px;text-decoration:none;color:#111827;background:#fff;border:1px solid #e1e6ed;border-radius:16px;box-shadow:0 8px 25px #1018270a;transition:transform .2s,border-color .2s,box-shadow .2s}
+    .portal-card:hover,.portal-card:focus-visible{transform:translateY(-6px);border-color:#ef334099;box-shadow:0 19px 36px #11182719;outline:none}
+    .portal-icon{width:64px;height:64px;display:grid;place-items:center;font-size:35px;background:#fff0f0;border-radius:18px;margin-bottom:12px}
+    .portal-card h3{font-size:19px;margin:4px 0 8px}
+    .portal-card p{color:#687386;font-size:13px;line-height:1.55;margin:0 auto;max-width:240px}
+    .portal-open{margin-top:auto;padding-top:17px;color:#b51d2a;font-size:12px;font-weight:900}
+    .portal-admin .portal-icon{background:#fff6df}
+    .portal-admin:hover,.portal-admin:focus-visible{border-color:#d8a64f}
+    .portal-admin .portal-open{color:#886116}
+    footer{background:#080d19;color:#bdc6d3;padding:35px 4%;text-align:center}
+    .footer-brand{display:inline-flex;align-items:center;gap:10px;color:#fff;font-size:17px;font-weight:900}
+    .footer-brand img{height:38px;width:52px;object-fit:contain;mix-blend-mode:screen}
+    footer p{margin:6px 0;font-size:13px}
+    .copyright{margin-top:15px!important;color:#8490a2;font-size:12px}
+    @media(max-width:950px){.nav-inner{gap:14px}.nav-links{gap:16px}.brand-name{font-size:17px}.hero-inner{gap:20px}.features,.portal-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:700px){.nav-inner{height:68px}.brand img{height:46px;width:60px}.brand-name{font-size:15px}.menu-toggle{display:block;margin-left:auto}.nav-cta{padding:10px 13px;font-size:13px}.nav-links{display:none;position:absolute;left:4%;right:4%;top:62px;padding:14px;background:#101827;border:1px solid #ffffff20;border-radius:12px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{display:block;padding:12px}.hero-inner{grid-template-columns:1fr;min-height:unset;padding:62px 0 45px}.hero-art{min-height:230px;grid-row:1}.hero-logo{width:min(340px,88%)}.hero-tag{right:2%;bottom:0}.hero h1{font-size:clamp(40px,11vw,58px)}.hero-copy{font-size:16px}.section{padding:63px 0}.features,.program-grid,.portal-grid{grid-template-columns:1fr}.feature-card{padding:22px}.program-card{min-height:unset}.portal-card{min-height:215px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
 </head>
-
 <body>
-
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">
-            PRIME <span>TAEKWONDO</span>
-        </div>
-
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#portal">Portal</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <a href="#portal" class="login-btn">Login</a>
+  <header class="site-nav">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Prime Taekwondo home">
+        <img src="logo.png" alt="Prime Taekwondo logo">
+        <span class="brand-name">PRIME <span>TAEKWONDO</span><small>DISCIPLINE · RESPECT · EXCELLENCE</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#programs">Programs</a></li><li><a href="#portal">Portal</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#portal" class="nav-cta">Member Login <span aria-hidden="true">→</span></a>
     </nav>
+  </header>
 
-
-    <!-- HERO -->
+  <main>
     <section class="hero" id="home">
-
-        <div class="hero-content">
-
-            <h1>
-                Train Hard.<br>
-                <span>Think Strong.</span><br>
-                Become Better.
-            </h1>
-
-            <p>
-                Prime Taekwondo is a professional martial arts academy
-                focused on fitness, discipline, confidence, self-defence
-                and competitive Taekwondo training.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#portal" class="primary-btn">
-                    Student Portal
-                </a>
-
-                <a href="#programs" class="secondary-btn">
-                    Explore Programs
-                </a>
-            </div>
-
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Train with purpose</div>
+          <h1>Train hard.<br><span>Think strong.</span><br>Become better.</h1>
+          <p class="hero-copy">Build fitness, discipline and confidence through focused Taekwondo training. Find the right program, strengthen your skills and take the next step in your journey.</p>
+          <div class="hero-buttons">
+            <a href="student-parent-portal.html?role=student" class="btn btn-primary">Student Portal <span aria-hidden="true">→</span></a>
+            <a href="#programs" class="btn btn-secondary">Explore Programs</a>
+          </div>
+          <div class="hero-note"><span>All experience levels</span><span>Fitness & confidence</span><span>Competition preparation</span></div>
         </div>
-
+        <div class="hero-art" aria-label="Prime Taekwondo mark">
+          <div class="logo-glow"></div>
+          <img class="hero-logo" src="logo.png" alt="Prime Taekwondo martial arts emblem">
+          <div class="hero-tag">DISCIPLINE · RESPECT · EXCELLENCE</div>
+        </div>
+      </div>
     </section>
 
-
-    <!-- FEATURES -->
-    <section id="about">
-
-        <div class="section-title">
-            <h2>Why Prime Taekwondo?</h2>
-            <p>Building stronger bodies and stronger minds.</p>
-        </div>
-
+    <section class="section" id="about">
+      <div class="section-inner">
+        <div class="section-heading"><div class="kicker">The Prime difference</div><h2>Stronger bodies. Stronger minds.</h2><p>Training that builds useful skills, confidence and character—one class at a time.</p></div>
         <div class="features">
-
-            <div class="feature-card">
-                <div class="icon">🥋</div>
-                <h3>Taekwondo</h3>
-                <p>
-                    Professional Taekwondo training
-                    for beginners and advanced students.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon">💪</div>
-                <h3>Fitness</h3>
-                <p>
-                    Improve strength, flexibility,
-                    stamina and coordination.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon">🛡️</div>
-                <h3>Self Defence</h3>
-                <p>
-                    Learn practical techniques while
-                    developing confidence and awareness.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon">🏆</div>
-                <h3>Competition</h3>
-                <p>
-                    Prepare students for school-level
-                    and competitive tournaments.
-                </p>
-            </div>
-
+          <article class="feature-card"><div class="feature-icon">🥋</div><h3>Taekwondo</h3><p>Professional training for beginners and advanced students, with clear progress at every level.</p></article>
+          <article class="feature-card"><div class="feature-icon">💪</div><h3>Fitness</h3><p>Build strength, flexibility, stamina and coordination through active, focused practice.</p></article>
+          <article class="feature-card"><div class="feature-icon">🛡️</div><h3>Self defence</h3><p>Learn practical techniques while developing confidence, awareness and control.</p></article>
+          <article class="feature-card"><div class="feature-icon">🏆</div><h3>Competition</h3><p>Prepare for school-level events and competitive tournaments with purposeful coaching.</p></article>
         </div>
-
+      </div>
     </section>
 
-
-    <!-- PROGRAMS -->
-    <section class="programs" id="programs">
-
-        <div class="section-title">
-            <h2>Our Training Programs</h2>
-            <p style="color:#d1d5db;">
-                Structured training for every level.
-            </p>
-        </div>
-
+    <section class="section programs" id="programs">
+      <div class="section-inner">
+        <div class="section-heading"><div class="kicker">Find your path</div><h2>Training programs</h2><p>Structured training for every level and goal.</p></div>
         <div class="program-grid">
-
-            <div class="program-card">
-                <h3>Kids Training</h3>
-                <p>
-                    Fitness, discipline, coordination,
-                    confidence and basic Taekwondo skills.
-                </p>
-            </div>
-
-            <div class="program-card">
-                <h3>Advanced Training</h3>
-                <p>
-                    Advanced techniques, sparring,
-                    fitness and performance development.
-                </p>
-            </div>
-
-            <div class="program-card">
-                <h3>Competition Training</h3>
-                <p>
-                    Specialized preparation for tournaments,
-                    school games and competitive events.
-                </p>
-            </div>
-
+          <article class="program-card"><div class="program-number">01 · START STRONG</div><h3>Kids training</h3><p>Fitness, discipline, coordination, confidence and foundational Taekwondo skills.</p></article>
+          <article class="program-card"><div class="program-number">02 · BUILD SKILL</div><h3>Advanced training</h3><p>Advanced techniques, sparring, fitness and personal performance development.</p></article>
+          <article class="program-card"><div class="program-number">03 · COMPETE</div><h3>Competition training</h3><p>Specialized preparation for tournaments, school games and competitive events.</p></article>
         </div>
-
+      </div>
     </section>
 
-
-    <!-- USER PORTAL -->
-    <section class="portal" id="portal">
-
-        <div class="section-title">
-            <h2>Prime Taekwondo Portal</h2>
-            <p>
-                Select your account type to continue.
-            </p>
-        </div>
-
+    <section class="section portal" id="portal">
+      <div class="section-inner">
+        <div class="section-heading"><div class="kicker">Your training, in one place</div><h2>Choose your portal</h2><p>Open the right space for your role at Prime Taekwondo.</p></div>
         <div class="portal-grid">
-
-            <div class="portal-card">
-                <div style="font-size:40px;">🥋</div>
-                <h3 onclick="window.location.href='student-parent-portal.html?role=student'" style="cursor:pointer;">Student</h3>
-                <p>
-                    View attendance, progress,
-                    rank and achievements.
-                </p>
-            </div>
-
-            <div class="portal-card">
-                <div style="font-size:40px;">👨‍🏫</div>
-                <h3>Teacher</h3>
-                <p>
-                    Manage students, attendance
-                    and daily training reports.
-                </p>
-            </div>
-
-            <div class="portal-card">
-                <div style="font-size:40px;">👨‍👩‍👧</div>
-                <h3 onclick="window.location.href='student-parent-portal.html?role=parent'" style="cursor:pointer;">Parent</h3>
-                <p>
-                    Monitor your child's activities,
-                    progress and achievements.
-                </p>
-            </div>
-
-      <div class="portal-card"
-     onclick="window.location.href='admin-login.html'"
-     style="cursor:pointer;">
-
-    <div style="font-size:40px;">👑</div>
-
-    <h3>Admin</h3>
-
-    <p>
-        Manage users, approvals,
-        reports and the entire system.
-    </p>
-
-</div>
-
+          <a class="portal-card" href="student-parent-portal.html?role=student"><span class="portal-icon">🥋</span><h3>Student</h3><p>See your attendance, rank, achievements and next training steps.</p><span class="portal-open">Open Student Portal →</span></a>
+          <div class="portal-card"><span class="portal-icon">👨‍🏫</span><h3>Teacher</h3><p>Manage students, attendance and daily training reports.</p><span class="portal-open">Teacher portal coming soon</span></div>
+          <a class="portal-card" href="student-parent-portal.html?role=parent"><span class="portal-icon">👨‍👩‍👧</span><h3>Parent</h3><p>Follow progress and activity for your linked child.</p><span class="portal-open">Open Parent Portal →</span></a>
+          <a class="portal-card portal-admin" href="admin-login.html"><span class="portal-icon">👑</span><h3>Admin</h3><p>Manage users, approvals, reports and the academy.</p><span class="portal-open">Open Admin Portal →</span></a>
         </div>
-
+      </div>
     </section>
+  </main>
 
-
-    <!-- FOOTER -->
-    <footer id="contact">
-
-        <p>
-            <strong>Prime Taekwondo</strong>
-        </p>
-
-        <p>
-            Train Hard • Stay Disciplined • Become Strong
-        </p>
-
-        <p style="margin-top:10px;">
-            © 2026 Prime Taekwondo. All Rights Reserved.
-        </p>
-
-    </footer>
-
+  <footer id="contact">
+    <div class="footer-brand"><img src="logo.png" alt=""><span>Prime Taekwondo</span></div>
+    <p>Train hard · Stay disciplined · Become strong</p>
+    <p class="copyright">© <span id="year"></span> Prime Taekwondo. All rights reserved.</p>
+  </footer>
+  <script>
+    const toggle=document.getElementById('menuToggle'), links=document.getElementById('navLinks');
+    toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');});
+    links.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
 </body>
 </html>
