@@ -9,10 +9,11 @@ This package keeps the Supabase-backed public homepage editor and photo gallery,
 - `site-manager.html` — existing homepage and public gallery editor.
 - `student-parent-portal.html` — Supabase sign-in, public access request, and approved member records.
 - `supabase-config.js`, `supabase-setup.sql` — browser configuration and database/RLS setup.
+- `student-photos-setup.sql` — private student photo bucket and access rules (run once in Supabase SQL Editor).
 - `SETUP-GUIDE-HINDI.md` — SQL, sign-up, upload and approval steps.
 
 ## Access and privacy
 
 Public visitors can request a Student or Parent/Guardian account from the Member Portal. Sign-up creates a Supabase Auth account and a pending application. Admin approval creates an active student profile; until then, RLS policies prevent the account from reading student records. Student/Parent record access is linked by the profile's student and parent email fields. Only Admin accounts can edit academy records.
 
-Run the updated `supabase-setup.sql` in the existing project's SQL Editor. It is idempotent and preserves current homepage/gallery data. The static site uses the Supabase publishable key only; never put a service-role/secret key in browser files.
+Run the updated `supabase-setup.sql` in the existing project's SQL Editor. It is idempotent and preserves current homepage/gallery data. To enable profile photos, also run `student-photos-setup.sql`. The static site uses the Supabase publishable key only; never put a service-role/secret key in browser files.

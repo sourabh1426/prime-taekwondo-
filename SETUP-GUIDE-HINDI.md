@@ -16,7 +16,8 @@ Is update mein current homepage editor aur public gallery **bani rahengi**. Admi
    - `https://sourabh1426.github.io/prime-taekwondo-/student-parent-portal.html`
    - `https://sourabh1426.github.io/prime-taekwondo-/admin-login.html`
    Forgot password ka email user ko inhi pages par wapas laata hai, jahan woh naya password set karega.
-3. Agar email confirmation on hai, naya user apna confirmation email kholkar account confirm kare. Confirmation ke baad Admin approval bhi zaroori hai.
+3. Public students ko confirmation/reset email bhejne ke liye **Authentication → Emails → SMTP Settings** mein apna custom SMTP provider configure karein. Supabase ka default test email project team ke addresses tak limited hai aur abhi 2 emails/hour ki limit rakhta hai. Email confirmation ko on rakhein.
+4. Agar email confirmation on hai, naya user apna confirmation email kholkar account confirm kare. Confirmation ke baad Admin approval bhi zaroori hai.
 
 ## 3. GitHub Pages files update karein
 
@@ -33,6 +34,16 @@ Is update mein current homepage editor aur public gallery **bani rahengi**. Admi
 4. Approve karne par student roster profile banegi. Roster ke **Student email** ya **Parent email** mein wahi exact email hona chahiye jisse woh login karega.
 5. Student/Parent apne email/password se Member Portal mein sign in kare. Sirf unhi ke email se linked active student records dikhte hain. Admin login session Member Portal se alag rakha gaya hai; Admin apne records Academy Dashboard se manage kare.
 6. Admin **Classes** mein schedule, **Attendance** mein hazri, **Student Progress** mein skill/score/coach note aur baki tabs mein activities, updates, awards aur belt promotions record kare.
+
+## Student profile photo ka setup
+
+1. Supabase **SQL Editor** kholein → **New query**.
+2. Is folder ki `student-photos-setup.sql` file ka poora content paste karke **Run** karein. Yeh private photo bucket, student photo field aur access rules banata hai. Isse dobara run karna safe hai.
+3. GitHub repository par updated `academy-admin.html` aur `student-parent-portal.html` upload karke **Commit changes** karein. Naya ZIP use kar rahe hain to extracted folder ki sab files upload karein.
+4. Admin Portal → **Students** → **Add student** (ya kisi student ke **Edit**) mein **Student profile photo** choose karein. JPG, PNG, WebP supported hain; max size 5 MB.
+5. Student/parent ko Member Portal mein apne linked email se sign in karna hoga. Photo sirf Admin aur us active student ke linked student/parent email ko dikhai degi.
+
+Photo ko GitHub repository ya public Gallery mein upload na karein. Yeh Supabase ke private Storage bucket mein rahegi.
 
 ## Website aur Gallery abhi bhi kahaan hain?
 
