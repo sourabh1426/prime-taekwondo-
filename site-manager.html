@@ -37,7 +37,7 @@
     function status(message,type=''){statusBox.textContent=message;statusBox.className='status'+(type?' '+type:'');statusBox.hidden=false}
     function setForm(content){for(const key of ['heroTitle','heroDescription','coachName','coachTitle','coachBio','contactPhone','address']){const field=document.getElementById(key);if(field)field.value=content[key]||''}}
     async function requireAdmin(){client=window.createPrimeSupabaseClient?.();if(!client){status('Supabase has not been configured yet. Follow the included setup guide.','error');return false}
-      const {data:{session}}=await client.auth.getSession();if(!session){location.replace('admin-login.html');return false}const {data,error}=await client.rpc('is_site_admin');if(error||data!==true){await client.auth.signOut();location.replace('admin-login.html');return false}
+      const {data:{session},error:sessionError}=await client.auth.getSession();if(sessionError){status(`Session check failed: ${sessionError.message}. Refresh again or sign in again.`,'error');return false}if(!session){location.replace('admin-login.html');return false}const {data,error}=await client.rpc('is_site_admin');if(error){status(`Admin access check failed: ${error.message}. Your session was kept; retry after checking Supabase.`,'error');return false}if(data!==true){await client.auth.signOut();location.replace('admin-login.html');return false}
       status('Signed in as an approved Admin.','success');return true;
     }
     async function loadContent(){const {data,error}=await client.from('site_content').select('content').eq('id',1).maybeSingle();if(error)throw error;if(data?.content)setForm(data.content)}

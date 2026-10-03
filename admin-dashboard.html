@@ -30,8 +30,8 @@
   <script>
     const statusBox=document.getElementById('status');let client;
     async function protectPage(){client=window.createPrimeSupabaseClient?.();if(!client){statusBox.textContent='Supabase setup is not finished. Follow the setup guide first.';statusBox.classList.add('error');return}
-      const {data:{session}}=await client.auth.getSession();if(!session){location.replace('admin-login.html');return}
-      const {data,error}=await client.rpc('is_site_admin');if(error||data!==true){await client.auth.signOut();location.replace('admin-login.html');return}
+      const {data:{session},error:sessionError}=await client.auth.getSession();if(sessionError){statusBox.textContent=`Session check failed: ${sessionError.message}. Refresh again or sign in again.`;statusBox.classList.add('error');return}if(!session){location.replace('admin-login.html');return}
+      const {data,error}=await client.rpc('is_site_admin');if(error){statusBox.textContent=`Admin access check failed: ${error.message}. Your session was kept; retry after checking Supabase.`;statusBox.classList.add('error');return}if(data!==true){await client.auth.signOut();location.replace('admin-login.html');return}
       location.replace('academy-admin.html');
     }
     document.getElementById('signOut').addEventListener('click',async()=>{if(client)await client.auth.signOut();location.href='admin-login.html'});protectPage();

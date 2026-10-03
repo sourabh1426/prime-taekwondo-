@@ -13,13 +13,15 @@ window.createPrimeSupabaseClient = function (scope = 'default') {
   if (scope === 'member') {
     if (!window.__primeSupabaseMemberClient) {
       window.__primeSupabaseMemberClient = window.supabase.createClient(settings.url, settings.publishableKey, {
-        auth: { storageKey: 'prime-taekwondo-member-auth' }
+        auth: { storageKey: 'prime-taekwondo-member-auth', storage: window.localStorage, persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
       });
     }
     return window.__primeSupabaseMemberClient;
   }
   if (!window.__primeSupabaseClient) {
-    window.__primeSupabaseClient = window.supabase.createClient(settings.url, settings.publishableKey);
+    window.__primeSupabaseClient = window.supabase.createClient(settings.url, settings.publishableKey, {
+      auth: { storage: window.localStorage, persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+    });
   }
   return window.__primeSupabaseClient;
 };
