@@ -27,11 +27,12 @@ Is update mein current homepage editor aur public gallery **bani rahengi**. Admi
 
 ## 4. Login request se student portal tak
 
-1. Website ke **Member Portal / Request Access** link par koi bhi visitor jaakar Student ya Parent/Guardian access request bhej sakta hai. Form Supabase login account bhi banata hai.
-2. Admin **Admin Portal** mein sign in kare. Naya Academy Dashboard khulega. **Approvals** se request approve ya reject karein.
-3. Approve karne par student roster profile banegi. Student email aur parent/guardian email profile se match hone chahiye.
-4. Admin **Classes** mein class schedule, **Attendance** mein hazri, **Student Progress** mein skill/score/coach note, aur baki tabs mein activities, updates, awards aur belt promotions record kare.
-5. Student/Parent usi email se Member Portal mein sign in kare. Approved aur active profile ke linked records hi dikhte hain. Approval se pehle ya inactive karne ke baad training records nahi dikhte.
+1. Student ya parent apne **khud ke email address** aur apne banaye password se **Member Portal → Request Access** form submit kare. Isse us email ka alag Supabase login account banta hai.
+2. Supabase mein email confirmation on ho to user apne inbox se email confirm kare. Gmail/Chrome agar Admin email autofill kare, use hata kar student/parent ka apna email type kare.
+3. Admin **Admin Portal** mein apne Admin email se sign in karke **Approvals** mein request approve kare.
+4. Approve karne par student roster profile banegi. Roster ke **Student email** ya **Parent email** mein wahi exact email hona chahiye jisse woh login karega.
+5. Student/Parent apne email/password se Member Portal mein sign in kare. Sirf unhi ke email se linked active student records dikhte hain. Admin login session Member Portal se alag rakha gaya hai; Admin apne records Academy Dashboard se manage kare.
+6. Admin **Classes** mein schedule, **Attendance** mein hazri, **Student Progress** mein skill/score/coach note aur baki tabs mein activities, updates, awards aur belt promotions record kare.
 
 ## Website aur Gallery abhi bhi kahaan hain?
 
@@ -41,6 +42,7 @@ Academy Dashboard ke left menu mein **Homepage editor** aur **Gallery manager** 
 
 - `supabase-config.js` mein keval Project URL aur **publishable key** hoti hai. `service_role` ya secret key website mein kabhi na rakhein.
 - Naye user account ka password user khud banata hai. Password SQL mein set/share na karein.
+- Sirf student roster mein naam add karne se login account nahi banta. Har student/parent ko apne email se **Request Access** form submit karna hoga, email confirm karna hoga (agar enabled hai), aur Admin approval lena hoga.
 - Login bhoolne par Member Portal ya Admin Login par **Forgot password?** dabayein, email dein, phir inbox/spam mein aaye link se naya password set karein. Reset link aam taur par limited time ke liye hota hai.
 - Request approve karne se login-account signup pehle se ho chuka hota hai; approval unke student/parent records ko unlock karti hai.
 - Existing demo `localStorage` data ko naye secure database mein import nahi kiya gaya. Real progress admin dashboard mein dobara enter karni hogi.

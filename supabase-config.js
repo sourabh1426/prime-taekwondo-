@@ -4,11 +4,19 @@ window.PRIME_SUPABASE_SETTINGS = {
   publishableKey: "sb_publishable_B74Ba1iT8obkEzq_O7aiAQ_c0g9b4Qv"
 };
 
-window.createPrimeSupabaseClient = function () {
+window.createPrimeSupabaseClient = function (scope = 'default') {
   const settings = window.PRIME_SUPABASE_SETTINGS || {};
   if (!window.supabase || !settings.url || !settings.publishableKey ||
       settings.url.includes("YOUR_PROJECT_REF") || settings.publishableKey.includes("YOUR_")) {
     return null;
+  }
+  if (scope === 'member') {
+    if (!window.__primeSupabaseMemberClient) {
+      window.__primeSupabaseMemberClient = window.supabase.createClient(settings.url, settings.publishableKey, {
+        auth: { storageKey: 'prime-taekwondo-member-auth' }
+      });
+    }
+    return window.__primeSupabaseMemberClient;
   }
   if (!window.__primeSupabaseClient) {
     window.__primeSupabaseClient = window.supabase.createClient(settings.url, settings.publishableKey);
