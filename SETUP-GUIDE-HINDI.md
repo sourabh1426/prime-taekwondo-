@@ -12,7 +12,10 @@ Is update mein current homepage editor aur public gallery **bani rahengi**. Admi
 ## 2. Public login requests on karein
 
 1. Supabase mein **Authentication → Sign In / Providers → Email** kholein aur email sign-up enabled rakhein.
-2. **Authentication → URL Configuration** mein Site URL `https://sourabh1426.github.io/prime-taekwondo-/` set karein. Redirect URLs mein bhi yahi address add karein.
+2. **Authentication → URL Configuration** mein Site URL `https://sourabh1426.github.io/prime-taekwondo-/` set karein. **Redirect URLs** list mein yeh dono exact addresses bhi add karein:
+   - `https://sourabh1426.github.io/prime-taekwondo-/student-parent-portal.html`
+   - `https://sourabh1426.github.io/prime-taekwondo-/admin-login.html`
+   Forgot password ka email user ko inhi pages par wapas laata hai, jahan woh naya password set karega.
 3. Agar email confirmation on hai, naya user apna confirmation email kholkar account confirm kare. Confirmation ke baad Admin approval bhi zaroori hai.
 
 ## 3. GitHub Pages files update karein
@@ -38,6 +41,7 @@ Academy Dashboard ke left menu mein **Homepage editor** aur **Gallery manager** 
 
 - `supabase-config.js` mein keval Project URL aur **publishable key** hoti hai. `service_role` ya secret key website mein kabhi na rakhein.
 - Naye user account ka password user khud banata hai. Password SQL mein set/share na karein.
+- Login bhoolne par Member Portal ya Admin Login par **Forgot password?** dabayein, email dein, phir inbox/spam mein aaye link se naya password set karein. Reset link aam taur par limited time ke liye hota hai.
 - Request approve karne se login-account signup pehle se ho chuka hota hai; approval unke student/parent records ko unlock karti hai.
 - Existing demo `localStorage` data ko naye secure database mein import nahi kiya gaya. Real progress admin dashboard mein dobara enter karni hogi.
 - GitHub Pages deployment complete hone mein kuch waqt lag sakta hai. Site URL: `https://sourabh1426.github.io/prime-taekwondo-/`.
