@@ -128,19 +128,24 @@
     .learn-section:before{content:"";position:absolute;width:440px;height:440px;right:-220px;top:-210px;border:1px solid #ef334033;border-radius:50%;box-shadow:0 0 0 42px #ef33400b,0 0 0 84px #ffffff08;pointer-events:none}
     .learn-section .section-heading h2{color:#fff}.learn-section .section-heading p{color:#c2cad7}
     .learn-grid{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
-    .champion-card,.resource-card,.video-card{overflow:hidden;border:1px solid #ffffff20;border-radius:17px;background:linear-gradient(145deg,#ffffff12,#ffffff08);box-shadow:0 16px 36px #05091430}
-    .champion-card{padding:25px;position:relative}.champion-card:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--red),var(--gold))}
-    .champion-kicker{display:flex;align-items:center;gap:9px;color:#f5d990;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    .champion-medal{display:grid;place-items:center;width:43px;height:43px;border-radius:14px;background:#ef334027;font-size:22px}
-    .champion-card h3,.resource-card h3,.video-card h3{margin:16px 0 7px;font-size:21px}
-    .champion-card p,.resource-card p,.video-card p{margin:0;color:#c2cad7;font-size:14px;line-height:1.7}
-    .champion-record{display:inline-flex;margin:14px 0 11px;padding:7px 10px;border:1px solid #f4ca7350;border-radius:999px;background:#f4ca7312;color:#f6d889;font-size:11px;font-weight:800}
-    .champion-card a,.resource-card a,.video-card a{color:#ffd1d4;font-weight:800;text-decoration:none}
-    .champion-card a:hover,.resource-card a:hover,.video-card a:hover{text-decoration:underline}
+    .learning-card,.resource-card,.video-card{overflow:hidden;border:1px solid #ffffff20;border-radius:17px;background:linear-gradient(145deg,#ffffff12,#ffffff08);box-shadow:0 16px 36px #05091430}
+    .learning-card{padding:25px;position:relative}.learning-card:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--red),var(--gold))}
+    .learning-kicker{display:flex;align-items:center;gap:9px;color:#f5d990;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .learning-icon{display:grid;place-items:center;width:43px;height:43px;border-radius:14px;background:#ef334027;font-size:22px}
+    .learning-card h3,.resource-card h3,.video-card h3{margin:16px 0 7px;font-size:21px}
+    .learning-card p,.resource-card p,.video-card p{margin:0;color:#c2cad7;font-size:14px;line-height:1.7}
+    .learning-card a,.resource-card a,.video-card a{color:#ffd1d4;font-weight:800;text-decoration:none}
+    .learning-card a:hover,.resource-card a:hover,.video-card a:hover{text-decoration:underline}
+    .learning-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+    .learning-point{padding:12px;border:1px solid #ffffff20;border-radius:12px;background:#080d1938}
+    .learning-point strong{display:block;margin-bottom:4px;color:#fff;font-size:13px}
+    .learning-point span{display:block;color:#c2cad7;font-size:12px;line-height:1.55}
+    .learning-values{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+    .learning-values span{padding:7px 10px;border:1px solid #f4ca7345;border-radius:999px;background:#f4ca7310;color:#f6d889;font-size:11px;font-weight:800}
     .learn-bottom{display:grid;grid-template-columns:.8fr 1.2fr;gap:17px;margin-top:17px}
     .resource-card{padding:25px;background:linear-gradient(145deg,#fff,#f5f7fb);color:#152033}
     .resource-card h3{color:#152033}.resource-card p{color:#637087}
-    .resource-card .champion-kicker{color:#b51d2a}
+    .resource-card .learning-kicker{color:#b51d2a}
     .download-link{display:inline-flex;align-items:center;gap:8px;margin-top:17px;padding:11px 15px;border-radius:9px;background:linear-gradient(135deg,#ff4654,#d91f32);color:#fff!important;text-decoration:none}
     .video-card{padding:22px}.video-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:14px}
     .video-heading h3{margin:0 0 5px}.video-heading p{font-size:13px}
@@ -154,7 +159,7 @@
     footer p{margin:6px 0;font-size:13px}
     .copyright{margin-top:15px!important;color:#8490a2;font-size:12px}
     @media(max-width:950px){.nav-inner{gap:14px}.nav-links{gap:16px}.brand-name{font-size:17px}.hero-inner{gap:20px}.features,.portal-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:700px){.nav-inner{height:68px}.brand img{height:46px;width:60px}.brand-name{font-size:15px}.menu-toggle{display:block;margin-left:auto}.nav-cta{padding:10px 13px;font-size:13px}.nav-links{display:none;position:absolute;left:4%;right:4%;top:62px;padding:14px;background:#101827;border:1px solid #ffffff20;border-radius:12px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{display:block;padding:12px}.hero-inner{grid-template-columns:1fr;min-height:unset;padding:62px 0 45px}.hero-art{min-height:230px;grid-row:1}.hero-logo{width:min(340px,88%)}.hero-tag{left:50%;right:auto;bottom:0;transform:translateX(-50%);padding:8px 10px;font-size:9px;letter-spacing:.08em}.hero h1{font-size:clamp(40px,11vw,58px)}.hero-copy{font-size:16px}.section{padding:63px 0}.features,.program-grid,.portal-grid,.gallery-grid,.learn-grid,.learn-bottom{grid-template-columns:1fr}.feature-card{padding:22px}.program-card{min-height:unset}.portal-card{min-height:215px}.coach-card,.contact-grid{grid-template-columns:1fr}.coach-mark{padding:30px 22px}.coach-details{padding:24px}.coach-highlights{grid-template-columns:1fr}.contact-card{padding:20px}.champion-card,.resource-card,.video-card{padding:20px}.video-heading{display:block}.video-badge{display:inline-flex;margin-top:10px}}
+    @media(max-width:700px){.nav-inner{height:68px}.brand img{height:46px;width:60px}.brand-name{font-size:15px}.menu-toggle{display:block;margin-left:auto}.nav-cta{padding:10px 13px;font-size:13px}.nav-links{display:none;position:absolute;left:4%;right:4%;top:62px;padding:14px;background:#101827;border:1px solid #ffffff20;border-radius:12px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{display:block;padding:12px}.hero-inner{grid-template-columns:1fr;min-height:unset;padding:62px 0 45px}.hero-art{min-height:230px;grid-row:1}.hero-logo{width:min(340px,88%)}.hero-tag{left:50%;right:auto;bottom:0;transform:translateX(-50%);padding:8px 10px;font-size:9px;letter-spacing:.08em}.hero h1{font-size:clamp(40px,11vw,58px)}.hero-copy{font-size:16px}.section{padding:63px 0}.features,.program-grid,.portal-grid,.gallery-grid,.learn-grid,.learn-bottom{grid-template-columns:1fr}.feature-card{padding:22px}.program-card{min-height:unset}.portal-card{min-height:215px}.coach-card,.contact-grid{grid-template-columns:1fr}.coach-mark{padding:30px 22px}.coach-details{padding:24px}.coach-highlights{grid-template-columns:1fr}.contact-card{padding:20px}.learning-card,.resource-card,.video-card{padding:20px}.learning-points{grid-template-columns:1fr}.video-heading{display:block}.video-badge{display:inline-flex;margin-top:10px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
 </head>
@@ -219,35 +224,39 @@
 
     <section class="section learn-section" id="learn">
       <div class="section-inner">
-        <div class="section-heading"><div class="kicker">Learn from the best</div><h2>Taekwondo Learning Hub</h2><p>Read champion stories, explore official results, and watch new competition footage from World Taekwondo.</p></div>
+        <div class="section-heading"><div class="kicker">Learn the art</div><h2>Taekwondo Learning Hub</h2><p>Learn what Taekwondo is, discover its main disciplines, and watch competition match videos.</p></div>
         <div class="learn-grid">
-          <article class="champion-card">
-            <div class="champion-kicker"><span class="champion-medal" aria-hidden="true">🏅</span> Champion story · Thailand</div>
-            <h3>Panipak Wongpattanakit</h3>
-            <span class="champion-record">Olympic gold · Women -49 kg · Tokyo 2020 + Paris 2024</span>
-            <p>Two Olympic titles in the same weight category make Panipak's record a powerful example of long-term progress. Students can use her story as a reminder to practise patiently, learn from each class, and keep improving one skill at a time.</p>
-            <p style="margin-top:14px"><a href="https://results.worldtaekwondo.org/profile/58e25a6c-9911-40db-aca8-98f2a72a5527" target="_blank" rel="noopener">See official World Taekwondo results ↗</a></p>
+          <article class="learning-card">
+            <div class="learning-kicker"><span class="learning-icon" aria-hidden="true">🥋</span> The idea</div>
+            <h3>What is Taekwondo?</h3>
+            <p>Taekwondo is a Korean martial art and sport. It trains students in kicking-focused techniques, hand-based defence and attack, and self-control. Training develops the body and mind, and can support self-defence, personal growth and sport.</p>
+            <div class="learning-values"><span>Focus</span><span>Respect</span><span>Discipline</span><span>Perseverance</span><span>Self-control</span></div>
+            <p style="margin-top:14px"><a href="https://kukkiwon.or.kr/eng/contents/view?contentsNo=92&menuLevel=2&menuNo=93" target="_blank" rel="noopener">Read Kukkiwon's Taekwondo overview ↗</a></p>
           </article>
-          <article class="champion-card">
-            <div class="champion-kicker"><span class="champion-medal" aria-hidden="true">🥇</span> Champion story · Uzbekistan</div>
-            <h3>Ulugbek Rashitov</h3>
-            <span class="champion-record">Olympic gold · Men -68 kg · Tokyo 2020 + Paris 2024</span>
-            <p>Rashitov won Olympic gold in the men's -68 kg category at both Tokyo 2020 and Paris 2024. His results show students that a big goal is reached through focused preparation, good coaching, and steady effort over time.</p>
-            <p style="margin-top:14px"><a href="https://results.worldtaekwondo.org/profile/2ed9c4d5-e48f-4cb8-8811-66eb5c65dfaa" target="_blank" rel="noopener">See official World Taekwondo record ↗</a></p>
+          <article class="learning-card">
+            <div class="learning-kicker"><span class="learning-icon" aria-hidden="true">🎯</span> Main disciplines</div>
+            <h3>How Taekwondo is practised</h3>
+            <p>Students build strong basics first, then practise set forms and controlled competition skills with their coach.</p>
+            <div class="learning-points">
+              <div class="learning-point"><strong>Poomsae · Forms</strong><span>Planned movements that practise balance, posture, focus and technique.</span></div>
+              <div class="learning-point"><strong>Kyorugi · Sparring</strong><span>Rule-based, controlled matches that use timing, distance and safe protective gear.</span></div>
+              <div class="learning-point"><strong>Core skills</strong><span>Footwork, kicks, blocks, hand techniques, flexibility and coordination.</span></div>
+              <div class="learning-point"><strong>Train safely</strong><span>Warm up, follow coach instructions, and practise contact skills only under supervision.</span></div>
+            </div>
           </article>
         </div>
         <div class="learn-bottom">
           <article class="resource-card">
-            <div class="champion-kicker"><span class="champion-medal" aria-hidden="true">📘</span> Read and take inspiration</div>
-            <h3>Olympic Champion Stories</h3>
-            <p>A student-friendly guide to repeat Olympic champions, their medal history, and simple practice ideas. Keep it, read it, and discuss your goals with your coach.</p>
-            <a class="download-link" href="taekwondo-champions-history.pdf" download>Download the PDF ↓</a>
-            <p style="margin-top:14px"><a href="https://results.worldtaekwondo.org/competitions" target="_blank" rel="noopener">Browse current official results ↗</a></p>
+            <div class="learning-kicker"><span class="learning-icon" aria-hidden="true">📘</span> Student guide</div>
+            <h3>Taekwondo Basics</h3>
+            <p>Download a short introduction to the art, its practice areas, values, basic vocabulary and safe training habits.</p>
+            <a class="download-link" href="taekwondo-basics-guide.pdf" download>Download the PDF ↓</a>
+            <p style="margin-top:14px"><a href="https://kukkiwon.or.kr/eng/contents/view?contentsNo=92&menuLevel=2&menuNo=93" target="_blank" rel="noopener">Official Kukkiwon overview ↗</a></p>
           </article>
           <article class="video-card">
-            <div class="video-heading"><div><h3>Latest Taekwondo matches & demonstrations</h3><p>Official World Taekwondo uploads, shown from the channel's latest-video playlist.</p></div><span class="video-badge">Auto-updating feed</span></div>
-            <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/videoseries?list=UUHp-A--zKubjgaa5ZQClk9g" title="Latest videos from the official World Taekwondo channel" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <p class="video-note">The playlist refreshes when World Taekwondo posts new videos; a new video will appear when the channel publishes one. Watch match footage for learning and motivation, and practise techniques only with your coach. <a href="https://www.youtube.com/@worldtaekwondo" target="_blank" rel="noopener">Open the official channel ↗</a></p>
+            <div class="video-heading"><div><h3>Latest Taekwondo match videos</h3><p>Competition matches and match highlights from the official World Taekwondo channel.</p></div><span class="video-badge">Auto-updating feed</span></div>
+            <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/videoseries?list=UUHp-A--zKubjgaa5ZQClk9g" title="Latest competition videos from the official World Taekwondo channel" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <p class="video-note">New uploads appear when the channel posts them; daily posting is not guaranteed. Match footage is for viewing and learning. Practise contact techniques only with your coach. <a href="https://www.youtube.com/@worldtaekwondo" target="_blank" rel="noopener">Open the official channel ↗</a></p>
           </article>
         </div>
       </div>
